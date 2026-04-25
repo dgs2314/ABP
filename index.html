@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>American Brand Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-mute: #8a8a8a;
+    --paper: #f4f1ec;
+    --paper-warm: #ebe6dd;
+    --rule: #d8d2c7;
+    --accent: #b22234;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+    mix-blend-mode: multiply;
+  }
+
+  .mark {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    font-style: italic;
+  }
+
+  .mark span {
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .meta {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  main {
+    padding: 0 48px;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    padding-top: 140px;
+    padding-bottom: 100px;
+    position: relative;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.2s forwards;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background: var(--ink-soft);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 8.5vw, 132px);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    max-width: 14ch;
+    color: var(--ink);
+  }
+
+  h1 .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 1s forwards;
+  }
+
+  h1 .word:nth-child(1) { animation-delay: 0.35s; }
+  h1 .word:nth-child(2) { animation-delay: 0.45s; }
+  h1 .word:nth-child(3) { animation-delay: 0.55s; }
+  h1 .word:nth-child(4) { animation-delay: 0.65s; }
+  h1 .word:nth-child(5) { animation-delay: 0.75s; }
+  h1 .word:nth-child(6) { animation-delay: 0.85s; }
+  h1 .word:nth-child(7) { animation-delay: 0.95s; }
+  h1 .word:nth-child(8) { animation-delay: 1.05s; }
+  h1 .word:nth-child(9) { animation-delay: 1.15s; }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .hero-foot {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: end;
+    opacity: 0;
+    animation: fadeUp 1s 1s forwards;
+  }
+
+  .lede {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 36ch;
+    font-weight: 400;
+  }
+
+  .scroll-cue {
+    justify-self: end;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .work {
+    padding: 160px 0 140px;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    align-self: start;
+  }
+
+  .work-content h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 4.2vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 56px;
+    max-width: 18ch;
+  }
+
+  .work-content h2 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px 64px;
+  }
+
+  .work-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .work-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--accent);
+  }
+
+  .work-item h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+
+  .work-item p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  .approach {
+    padding: 140px 0 160px;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+  }
+
+  .approach-content {
+    max-width: 56ch;
+  }
+
+  .approach-content p {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(22px, 2.4vw, 32px);
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+
+  .approach-content p + p {
+    margin-top: 32px;
+  }
+
+  .approach-content em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .contact {
+    padding: 160px 0 100px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    position: relative;
+  }
+
+  .contact .section-label {
+    margin-bottom: 56px;
+    display: block;
+  }
+
+  .contact h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 56px;
+  }
+
+  .contact h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .email-link {
+    display: inline-block;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(28px, 4vw, 52px);
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    position: relative;
+    padding-bottom: 8px;
+    transition: color 0.4s ease;
+  }
+
+  .email-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--ink);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  }
+
+  .email-link:hover {
+    color: var(--accent);
+  }
+
+  .email-link:hover::after {
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  footer {
+    padding: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--rule);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  footer .mark {
+    font-size: 13px;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    color: var(--ink-soft);
+  }
+
+  .star {
+    position: absolute;
+    top: 35%;
+    right: 8%;
+    width: 64px;
+    height: 64px;
+    opacity: 0;
+    animation: spin 30s linear infinite, fadeIn 1.2s 1.4s forwards;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 0.5; }
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    nav .meta { display: none; }
+    main { padding: 0 24px; }
+    .hero { padding-top: 120px; padding-bottom: 80px; }
+    .eyebrow { margin-bottom: 32px; }
+    .hero-foot { grid-template-columns: 1fr; gap: 32px; margin-top: 56px; }
+    .scroll-cue { display: none; }
+    .work, .approach { grid-template-columns: 1fr; gap: 40px; padding: 100px 0; }
+    .work-grid { grid-template-columns: 1fr; gap: 40px; }
+    .approach-content p + p { margin-top: 20px; }
+    .contact { padding: 100px 0 80px; }
+    footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+    .star { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav>
+  <div class="mark">American <span>Brand Partners</span></div>
+  <div class="meta">EST. 2025</div>
+</nav>
+
+<main>
+
+  <section class="hero">
+    <div class="eyebrow">A sponsorship advisory</div>
+    <h1>
+      <span class="word">The</span>
+      <span class="word">right</span>
+      <span class="word">brand.</span>
+      <span class="word">The</span>
+      <span class="word">right</span>
+      <span class="word"><em>moment.</em></span>
+      <span class="word">The</span>
+      <span class="word">right</span>
+      <span class="word">property.</span>
+    </h1>
+
+    <svg class="star" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 0L55 45L100 50L55 55L50 100L45 55L0 50L45 45L50 0Z" fill="#b22234"/>
+    </svg>
+
+    <div class="hero-foot">
+      <p class="lede">American Brand Partners helps properties identify, pitch, and close sponsorship opportunities with brands that fit.</p>
+      <div class="scroll-cue">Scroll &mdash; 01 / 04</div>
+    </div>
+  </section>
+
+  <section class="work">
+    <div class="section-label">[ 02 ] What we do</div>
+    <div class="work-content">
+      <h2>Sponsorship, <em>sourced and structured</em>.</h2>
+      <div class="work-grid">
+        <div class="work-item">
+          <span class="work-num">i.</span>
+          <h3>We find the fit</h3>
+          <p>Stadiums, teams, festivals, venues, civic projects. We identify the placements that match your brand and your budget.</p>
+        </div>
+        <div class="work-item">
+          <span class="work-num">ii.</span>
+          <h3>We make the introduction</h3>
+          <p>Direct access to property owners and decision-makers. No agency layers, no inflated rate cards.</p>
+        </div>
+        <div class="work-item">
+          <span class="work-num">iii.</span>
+          <h3>We negotiate the deal</h3>
+          <p>Terms, valuation, activation rights. We help move the conversation from interest to agreement.</p>
+        </div>
+        <div class="work-item">
+          <span class="work-num">iv.</span>
+          <h3>We stay in the room</h3>
+          <p>Through signing and beyond. Sponsorship is a relationship, not a transaction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="approach">
+    <div class="section-label">[ 03 ] Approach</div>
+    <div class="approach-content">
+      <p>Most sponsorship deals get sold, not bought. Properties pitch what they need to move. Brands buy what's in front of them.</p>
+      <p>We help connect the right brands with the right opportunities — the ones that make sense for the moment, the market, and the message.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <span class="section-label">[ 04 ] Get in touch</span>
+    <h2>Looking for the right <em>placement</em>?</h2>
+    <a href="mailto:hello@americanbrandpartners.com" class="email-link">hello@americanbrandpartners.com</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="mark">American Brand Partners</div>
+  <div>&copy; 2026</div>
+</footer>
+
+</body>
+</html>
