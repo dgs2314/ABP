@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f4f1ec">
+<meta name="description" content="American Brand Partners helps stadiums, teams, and festivals find the right brand sponsors — and close the deal.">
 <title>American Brand Partners</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
@@ -14,7 +17,6 @@
     --ink-soft: #4a4a4a;
     --ink-mute: #8a8a8a;
     --paper: #f4f1ec;
-    --paper-warm: #ebe6dd;
     --rule: #d8d2c7;
     --accent: #b22234;
   }
@@ -43,6 +45,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
   }
 
+  /* ===== NAV ===== */
   nav {
     position: fixed;
     top: 0;
@@ -69,12 +72,22 @@
     font-weight: 400;
   }
 
+  /* ===== LAYOUT ===== */
   main {
     padding: 0 48px;
     max-width: 1600px;
     margin: 0 auto;
   }
 
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+  }
+
+  /* ===== HERO ===== */
   .hero {
     min-height: 100vh;
     display: grid;
@@ -121,9 +134,9 @@
     animation: fadeUp 1s forwards;
   }
 
-  h1 .line:nth-child(1) { animation-delay: 0.35s; }
-  h1 .line:nth-child(2) { animation-delay: 0.55s; }
-  h1 .line:nth-child(3) { animation-delay: 0.75s; }
+  h1 .line:nth-child(1) { animation-delay: 0.4s; }
+  h1 .line:nth-child(2) { animation-delay: 0.7s; }
+  h1 .line:nth-child(3) { animation-delay: 1.0s; }
 
   h1 em {
     font-style: italic;
@@ -138,7 +151,7 @@
     gap: 48px;
     align-items: end;
     opacity: 0;
-    animation: fadeUp 1s 1s forwards;
+    animation: fadeUp 1s 1.5s forwards;
   }
 
   .lede {
@@ -158,52 +171,55 @@
     transform: rotate(180deg);
   }
 
-  .work {
+  .star {
+    position: absolute;
+    top: 30%;
+    right: 6%;
+    width: 56px;
+    height: 56px;
+    opacity: 0;
+    animation: spin 30s linear infinite, fadeIn 1.2s 1.8s forwards;
+  }
+
+  /* ===== CONTENT SECTIONS (shared structure) ===== */
+  .section {
     padding: 120px 0;
     border-top: 1px solid var(--rule);
     display: grid;
     grid-template-columns: 1fr 1.6fr;
     gap: 64px;
-    align-items: center;
+    align-items: start;
   }
 
-  .work-aside {
+  .section-aside {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 28px;
   }
 
-  .work-aside img {
+  .section-heading {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    max-width: 14ch;
+  }
+
+  .section-heading em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .section-image {
     width: 100%;
     height: auto;
     display: block;
     mix-blend-mode: multiply;
   }
 
-  .section-label {
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: block;
-  }
-
-  .work-content h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(28px, 3.6vw, 48px);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    margin-bottom: 56px;
-    max-width: 14ch;
-  }
-
-  .work-content h2 em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--accent);
-  }
-
+  /* ===== WORK SECTION ===== */
   .work-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -238,28 +254,7 @@
     color: var(--ink-soft);
   }
 
-  .approach {
-    padding: 120px 0;
-    border-top: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 64px;
-    align-items: center;
-  }
-
-  .approach-aside {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .approach-aside img {
-    width: 100%;
-    height: auto;
-    display: block;
-    mix-blend-mode: multiply;
-  }
-
+  /* ===== APPROACH SECTION ===== */
   .approach-content {
     max-width: 56ch;
   }
@@ -282,6 +277,7 @@
     color: var(--accent);
   }
 
+  /* ===== CONTACT SECTION ===== */
   .contact {
     padding: 140px 0 120px;
     border-top: 1px solid var(--rule);
@@ -344,6 +340,7 @@
     transform-origin: left;
   }
 
+  /* ===== FOOTER ===== */
   footer {
     padding: 32px 48px;
     display: flex;
@@ -365,16 +362,7 @@
     color: var(--ink-soft);
   }
 
-  .star {
-    position: absolute;
-    top: 30%;
-    right: 6%;
-    width: 56px;
-    height: 56px;
-    opacity: 0;
-    animation: spin 30s linear infinite, fadeIn 1.2s 1.4s forwards;
-  }
-
+  /* ===== ANIMATIONS ===== */
   @keyframes spin {
     to { transform: rotate(360deg); }
   }
@@ -390,19 +378,19 @@
     }
   }
 
-  /* Tablet */
+  /* ===== TABLET ===== */
   @media (max-width: 900px) {
-    .work, .approach {
+    .section {
       grid-template-columns: 1fr;
-      gap: 48px;
+      gap: 56px;
     }
-    .work-aside, .approach-aside {
-      max-width: 520px;
+    .section-aside {
+      max-width: 560px;
     }
     .work-grid { gap: 40px; }
   }
 
-  /* Mobile */
+  /* ===== MOBILE ===== */
   @media (max-width: 768px) {
     nav {
       padding: 18px 20px;
@@ -448,17 +436,16 @@
       right: 8%;
     }
 
-    .work, .approach {
+    .section {
       padding: 72px 0;
-      gap: 32px;
+      gap: 36px;
     }
-    .work-aside, .approach-aside {
+    .section-aside {
       gap: 20px;
       max-width: 100%;
     }
-    .work-content h2 {
-      font-size: 30px;
-      margin-bottom: 36px;
+    .section-heading {
+      font-size: 28px;
       max-width: 100%;
     }
     .work-grid {
@@ -506,13 +493,13 @@
     }
   }
 
-  /* Small phones */
+  /* ===== SMALL PHONES ===== */
   @media (max-width: 380px) {
     h1 {
       font-size: 34px;
     }
-    .work-content h2 {
-      font-size: 26px;
+    .section-heading {
+      font-size: 24px;
     }
     .approach-content p {
       font-size: 18px;
@@ -544,7 +531,7 @@
       <span class="line">The right property.</span>
     </h1>
 
-    <svg class="star" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="star" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M50 0L55 45L100 50L55 55L50 100L45 55L0 50L45 45L50 0Z" fill="#b22234"/>
     </svg>
 
@@ -554,46 +541,45 @@
     </div>
   </section>
 
-  <section class="work">
-    <aside class="work-aside">
+  <section class="section work">
+    <aside class="section-aside">
       <span class="section-label">[ 02 ] What we do</span>
-      <img src="/stadium-exterior.png" alt="Hand-drawn illustration of a stadium exterior" />
+      <h2 class="section-heading">Sponsorship, <em>sourced and structured</em>.</h2>
+      <img class="section-image" src="/stadium-exterior.png" alt="Hand-drawn illustration of a stadium exterior" />
     </aside>
-    <div class="work-content">
-      <h2>Sponsorship, <em>sourced and structured</em>.</h2>
-      <div class="work-grid">
-        <div class="work-item">
-          <span class="work-num">i.</span>
-          <h3>We find the brand</h3>
-          <p>We start with your property, your audience, and your goals, then build a target list of brands with a real reason to be there.</p>
-        </div>
-        <div class="work-item">
-          <span class="work-num">ii.</span>
-          <h3>We make the introduction</h3>
-          <p>Direct outreach to brand-side decision-makers. No cold pitches into the void, no waiting on inbound.</p>
-        </div>
-        <div class="work-item">
-          <span class="work-num">iii.</span>
-          <h3>We move the deal forward</h3>
-          <p>Valuation, activation rights, term structure. We keep the conversation going until there's a signed agreement.</p>
-        </div>
-        <div class="work-item">
-          <span class="work-num">iv.</span>
-          <h3>We stay in the room</h3>
-          <p>Through renewal and beyond. Most sponsorship value is created after the deal closes, and we help you capture it.</p>
-        </div>
+    <div class="work-grid">
+      <div class="work-item">
+        <span class="work-num">i.</span>
+        <h3>We find the brand</h3>
+        <p>We start with your property, your audience, and your goals, then build a target list of brands with a real reason to be there.</p>
+      </div>
+      <div class="work-item">
+        <span class="work-num">ii.</span>
+        <h3>We make the introduction</h3>
+        <p>Direct outreach to brand-side decision-makers. No cold pitches into the void, no waiting on inbound.</p>
+      </div>
+      <div class="work-item">
+        <span class="work-num">iii.</span>
+        <h3>We move the deal forward</h3>
+        <p>Valuation, activation rights, term structure. We keep the conversation going until there's a signed agreement.</p>
+      </div>
+      <div class="work-item">
+        <span class="work-num">iv.</span>
+        <h3>We stay in the room</h3>
+        <p>Through renewal and beyond. Most sponsorship value is created after the deal closes, and we help you capture it.</p>
       </div>
     </div>
   </section>
 
-  <section class="approach">
-    <aside class="approach-aside">
+  <section class="section approach">
+    <aside class="section-aside">
       <span class="section-label">[ 03 ] Approach</span>
-      <img src="/stadium-aerial.png" alt="Hand-drawn aerial illustration of a stadium and surrounding cityscape" />
+      <h2 class="section-heading">We work the <em>other direction</em>.</h2>
+      <img class="section-image" src="/stadium-aerial.png" alt="Hand-drawn aerial illustration of a stadium and surrounding cityscape" />
     </aside>
     <div class="approach-content">
       <p>Most sponsorship deals get sold, not bought. Properties pitch what they need to move. Brands buy what's in front of them.</p>
-      <p>We work the other direction. We start with your property, identify the brands with a real reason to show up, and bring them <em>to the table</em>.</p>
+      <p>We start with your property, identify the brands with a real reason to show up, and bring them <em>to the table</em>.</p>
     </div>
   </section>
 
