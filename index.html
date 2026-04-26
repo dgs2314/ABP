@@ -68,15 +68,10 @@
     font-weight: 400;
   }
 
-  .meta {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
-
   main {
     padding: 0 48px;
+    max-width: 1600px;
+    margin: 0 auto;
   }
 
   .hero {
@@ -112,29 +107,22 @@
   h1 {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(48px, 8.5vw, 132px);
-    line-height: 0.96;
+    font-size: clamp(48px, 7.5vw, 116px);
+    line-height: 1;
     letter-spacing: -0.035em;
-    max-width: 14ch;
     color: var(--ink);
   }
 
-  h1 .word {
-    display: inline-block;
+  h1 .line {
+    display: block;
     opacity: 0;
     transform: translateY(24px);
     animation: fadeUp 1s forwards;
   }
 
-  h1 .word:nth-child(1) { animation-delay: 0.35s; }
-  h1 .word:nth-child(2) { animation-delay: 0.45s; }
-  h1 .word:nth-child(3) { animation-delay: 0.55s; }
-  h1 .word:nth-child(4) { animation-delay: 0.65s; }
-  h1 .word:nth-child(5) { animation-delay: 0.75s; }
-  h1 .word:nth-child(6) { animation-delay: 0.85s; }
-  h1 .word:nth-child(7) { animation-delay: 0.95s; }
-  h1 .word:nth-child(8) { animation-delay: 1.05s; }
-  h1 .word:nth-child(9) { animation-delay: 1.15s; }
+  h1 .line:nth-child(1) { animation-delay: 0.35s; }
+  h1 .line:nth-child(2) { animation-delay: 0.55s; }
+  h1 .line:nth-child(3) { animation-delay: 0.75s; }
 
   h1 em {
     font-style: italic;
@@ -143,9 +131,9 @@
   }
 
   .hero-foot {
-    margin-top: 80px;
+    margin-top: 72px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto;
     gap: 48px;
     align-items: end;
     opacity: 0;
@@ -156,12 +144,11 @@
     font-size: 17px;
     line-height: 1.55;
     color: var(--ink-soft);
-    max-width: 36ch;
+    max-width: 52ch;
     font-weight: 400;
   }
 
   .scroll-cue {
-    justify-self: end;
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -171,20 +158,18 @@
   }
 
   .work {
-    padding: 160px 0 140px;
+    padding: 120px 0;
     border-top: 1px solid var(--rule);
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 80px;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 64px;
+    align-items: start;
   }
 
   .work-aside {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    align-self: start;
-    position: sticky;
-    top: 120px;
+    gap: 32px;
   }
 
   .work-aside img {
@@ -205,11 +190,11 @@
   .work-content h2 {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(32px, 4.2vw, 56px);
+    font-size: clamp(32px, 3.6vw, 48px);
     line-height: 1.05;
     letter-spacing: -0.025em;
     margin-bottom: 56px;
-    max-width: 18ch;
+    max-width: 14ch;
   }
 
   .work-content h2 em {
@@ -221,7 +206,7 @@
   .work-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 56px 64px;
+    gap: 48px 40px;
   }
 
   .work-item {
@@ -253,20 +238,18 @@
   }
 
   .approach {
-    padding: 140px 0 160px;
+    padding: 120px 0;
     border-top: 1px solid var(--rule);
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 80px;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 64px;
+    align-items: start;
   }
 
   .approach-aside {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    align-self: start;
-    position: sticky;
-    top: 120px;
+    gap: 32px;
   }
 
   .approach-aside img {
@@ -283,14 +266,14 @@
   .approach-content p {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(22px, 2.4vw, 32px);
+    font-size: clamp(22px, 2.2vw, 30px);
     line-height: 1.35;
     letter-spacing: -0.015em;
     color: var(--ink);
   }
 
   .approach-content p + p {
-    margin-top: 32px;
+    margin-top: 28px;
   }
 
   .approach-content em {
@@ -299,22 +282,22 @@
   }
 
   .contact {
-    padding: 160px 0 100px;
+    padding: 140px 0 120px;
+    border-top: 1px solid var(--rule);
     text-align: center;
-    position: relative;
   }
 
   .contact .section-label {
-    margin-bottom: 56px;
+    margin-bottom: 40px;
   }
 
   .contact h2 {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(40px, 6vw, 88px);
+    font-size: clamp(40px, 5.5vw, 80px);
     line-height: 1;
     letter-spacing: -0.03em;
-    margin-bottom: 56px;
+    margin-bottom: 48px;
   }
 
   .contact h2 em {
@@ -327,7 +310,7 @@
     font-family: 'Fraunces', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(28px, 4vw, 52px);
+    font-size: clamp(24px, 3.4vw, 44px);
     color: var(--ink);
     text-decoration: none;
     letter-spacing: -0.02em;
@@ -359,7 +342,7 @@
   }
 
   footer {
-    padding: 48px;
+    padding: 32px 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -368,6 +351,8 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink-mute);
+    max-width: 1600px;
+    margin: 0 auto;
   }
 
   footer .mark {
@@ -379,10 +364,10 @@
 
   .star {
     position: absolute;
-    top: 35%;
-    right: 8%;
-    width: 64px;
-    height: 64px;
+    top: 30%;
+    right: 6%;
+    width: 56px;
+    height: 56px;
     opacity: 0;
     animation: spin 30s linear infinite, fadeIn 1.2s 1.4s forwards;
   }
@@ -402,21 +387,30 @@
     }
   }
 
+  @media (max-width: 900px) {
+    .work, .approach {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .work-aside, .approach-aside {
+      max-width: 520px;
+    }
+    .work-grid { gap: 40px; }
+  }
+
   @media (max-width: 768px) {
     nav { padding: 20px 24px; }
-    nav .meta { display: none; }
     main { padding: 0 24px; }
     .hero { padding-top: 120px; padding-bottom: 80px; }
     .eyebrow { margin-bottom: 32px; }
-    .hero-foot { grid-template-columns: 1fr; gap: 32px; margin-top: 56px; }
+    .hero-foot { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; }
     .scroll-cue { display: none; }
-    .work, .approach { grid-template-columns: 1fr; gap: 40px; padding: 100px 0; }
-    .work-aside { position: static; max-width: 480px; }
-    .work-grid { grid-template-columns: 1fr; gap: 40px; }
+    .work, .approach { padding: 80px 0; gap: 40px; }
+    .work-content h2 { margin-bottom: 40px; }
+    .work-grid { grid-template-columns: 1fr; gap: 36px; }
     .approach-content p + p { margin-top: 20px; }
-    .approach-aside { position: static; max-width: 480px; }
     .contact { padding: 100px 0 80px; }
-    footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+    footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
     .star { display: none; }
   }
 </style>
@@ -434,15 +428,9 @@
   <section class="hero">
     <div class="eyebrow">A sponsorship advisory</div>
     <h1>
-      <span class="word">The</span>
-      <span class="word">right</span>
-      <span class="word">brand.</span>
-      <span class="word">The</span>
-      <span class="word">right</span>
-      <span class="word"><em>moment.</em></span>
-      <span class="word">The</span>
-      <span class="word">right</span>
-      <span class="word">property.</span>
+      <span class="line">The right brand.</span>
+      <span class="line">The right <em>moment.</em></span>
+      <span class="line">The right property.</span>
     </h1>
 
     <svg class="star" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -450,7 +438,7 @@
     </svg>
 
     <div class="hero-foot">
-      <p class="lede">American Brand Partners helps properties &mdash; stadiums, teams, festivals, venues, civic projects &mdash; find the brands that belong on them.</p>
+      <p class="lede">We help stadiums, teams, and festivals find the right brand sponsors &mdash; and close the deal.</p>
       <div class="scroll-cue">Scroll &mdash; 01 / 04</div>
     </div>
   </section>
