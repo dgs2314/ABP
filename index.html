@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f4f1ec">
 <title>American Brand Partners</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,7 +108,7 @@
   h1 {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(48px, 7.5vw, 116px);
+    font-size: clamp(40px, 7.5vw, 116px);
     line-height: 1;
     letter-spacing: -0.035em;
     color: var(--ink);
@@ -141,8 +142,8 @@
   }
 
   .lede {
-    font-size: 17px;
-    line-height: 1.55;
+    font-size: 21px;
+    line-height: 1.5;
     color: var(--ink-soft);
     max-width: 52ch;
     font-weight: 400;
@@ -163,7 +164,7 @@
     display: grid;
     grid-template-columns: 1fr 1.6fr;
     gap: 64px;
-    align-items: start;
+    align-items: center;
   }
 
   .work-aside {
@@ -190,7 +191,7 @@
   .work-content h2 {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(32px, 3.6vw, 48px);
+    font-size: clamp(28px, 3.6vw, 48px);
     line-height: 1.05;
     letter-spacing: -0.025em;
     margin-bottom: 56px;
@@ -243,7 +244,7 @@
     display: grid;
     grid-template-columns: 1fr 1.6fr;
     gap: 64px;
-    align-items: start;
+    align-items: center;
   }
 
   .approach-aside {
@@ -266,7 +267,7 @@
   .approach-content p {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(22px, 2.2vw, 30px);
+    font-size: clamp(20px, 2.2vw, 30px);
     line-height: 1.35;
     letter-spacing: -0.015em;
     color: var(--ink);
@@ -294,7 +295,7 @@
   .contact h2 {
     font-family: 'Fraunces', serif;
     font-weight: 300;
-    font-size: clamp(40px, 5.5vw, 80px);
+    font-size: clamp(36px, 5.5vw, 80px);
     line-height: 1;
     letter-spacing: -0.03em;
     margin-bottom: 48px;
@@ -310,13 +311,15 @@
     font-family: 'Fraunces', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(24px, 3.4vw, 44px);
+    font-size: clamp(18px, 3.4vw, 44px);
     color: var(--ink);
     text-decoration: none;
     letter-spacing: -0.02em;
     position: relative;
     padding-bottom: 8px;
     transition: color 0.4s ease;
+    word-break: break-word;
+    max-width: 100%;
   }
 
   .email-link::after {
@@ -387,6 +390,7 @@
     }
   }
 
+  /* Tablet */
   @media (max-width: 900px) {
     .work, .approach {
       grid-template-columns: 1fr;
@@ -398,20 +402,127 @@
     .work-grid { gap: 40px; }
   }
 
+  /* Mobile */
   @media (max-width: 768px) {
-    nav { padding: 20px 24px; }
-    main { padding: 0 24px; }
-    .hero { padding-top: 120px; padding-bottom: 80px; }
-    .eyebrow { margin-bottom: 32px; }
-    .hero-foot { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; }
+    nav {
+      padding: 18px 20px;
+    }
+    .mark {
+      font-size: 16px;
+    }
+    main {
+      padding: 0 20px;
+    }
+    .hero {
+      padding-top: 100px;
+      padding-bottom: 60px;
+      min-height: auto;
+    }
+    .eyebrow {
+      margin-bottom: 28px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+    }
+    .eyebrow::before {
+      width: 24px;
+    }
+    h1 {
+      font-size: clamp(36px, 11vw, 56px);
+      letter-spacing: -0.03em;
+    }
+    .hero-foot {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .lede {
+      font-size: 17px;
+      line-height: 1.5;
+    }
     .scroll-cue { display: none; }
-    .work, .approach { padding: 80px 0; gap: 40px; }
-    .work-content h2 { margin-bottom: 40px; }
-    .work-grid { grid-template-columns: 1fr; gap: 36px; }
-    .approach-content p + p { margin-top: 20px; }
-    .contact { padding: 100px 0 80px; }
-    footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
-    .star { display: none; }
+    .star {
+      width: 36px;
+      height: 36px;
+      top: auto;
+      bottom: 18%;
+      right: 8%;
+    }
+
+    .work, .approach {
+      padding: 72px 0;
+      gap: 32px;
+    }
+    .work-aside, .approach-aside {
+      gap: 20px;
+      max-width: 100%;
+    }
+    .work-content h2 {
+      font-size: 30px;
+      margin-bottom: 36px;
+      max-width: 100%;
+    }
+    .work-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .work-item h3 {
+      font-size: 20px;
+    }
+    .work-item p {
+      font-size: 15px;
+    }
+    .approach-content p {
+      font-size: 20px;
+      line-height: 1.4;
+    }
+    .approach-content p + p {
+      margin-top: 20px;
+    }
+
+    .contact {
+      padding: 88px 0 72px;
+    }
+    .contact .section-label {
+      margin-bottom: 28px;
+    }
+    .contact h2 {
+      font-size: 36px;
+      margin-bottom: 32px;
+    }
+    .email-link {
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    footer {
+      padding: 24px 20px;
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+      font-size: 10px;
+    }
+    footer .mark {
+      font-size: 12px;
+    }
+  }
+
+  /* Small phones */
+  @media (max-width: 380px) {
+    h1 {
+      font-size: 34px;
+    }
+    .work-content h2 {
+      font-size: 26px;
+    }
+    .approach-content p {
+      font-size: 18px;
+    }
+    .contact h2 {
+      font-size: 32px;
+    }
+    .email-link {
+      font-size: 16px;
+    }
   }
 </style>
 </head>
